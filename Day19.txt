@@ -1,0 +1,748 @@
+Map interface 
+	--> three sets : keys, values, mappings..
+
+	--> map interface or sortedMap.
+
+	--> sortedMap extends the Map interface.
+
+	--> three class implement map interface HashMap, LinkedHashMap, TreeMap.
+
+
+
+				Map
+	
+			extends				implements
+		
+			SortedMap			HashMap
+			
+			implements			extends
+
+			TreeMap				LinkedHashMap
+
+
+Operations::
+		
+	1.Adding elements
+	2. Remove the elements
+	3. changing the elee
+	4. iterate
+
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+	
+	    Map<String,String> m1= new HashMap<>();
+	    Map<Integer,String>m2=new HashMap<>();
+	    
+	    m1.put("1","Hai");
+	    m1.put("2","Revature");
+	    m1.put("3","Associates");
+	    
+	    m2.put(1,"Welcome");
+	    m2.put(3,"All");
+	    
+	    System.out.println(m1);
+	    System.out.println();
+	    System.out.println(m2);
+	}
+}
+
+2. Remove the elements
+
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+	
+	    Map<String,String> m1= new HashMap<>();
+	    Map<Integer,String>m2=new HashMap<>();
+	    
+	    m1.put("1","Hai");
+	    m1.put("2","Revature");
+	    m1.put("3","Associates");
+	    
+	    m2.put(1,"Welcome");
+	    m2.put(3,"All");
+	    
+	    System.out.println(m1);
+	    System.out.println();
+	    System.out.println(m2);
+	    
+	    m1.remove("3");
+	    System.out.println(m1);
+	}
+}
+3. change the elements
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+	
+	    Map<String,String> m1= new HashMap<>();
+	    Map<Integer,String>m2=new HashMap<>();
+	    
+	    m1.put("1","Hai");
+	    m1.put("2","Revature");
+	    m1.put("3","Associates");
+	    
+	    m2.put(1,"Welcome");
+	    m2.put(3,"All");
+	    
+	    System.out.println(m1);
+	    System.out.println();
+	    System.out.println(m2);
+	    
+	    m1.remove("3");
+	    System.out.println(m1);
+	}
+}
+
+
+Traversal of hashMap
+
+1. use an iterator
+2. enhanced for loop
+3. forEach()
+
+
+hm.entrySet()
+
+
+hm.entrySet().iterator()
+
+hmiterator.hasNext()
+
+hmiterator.next()
+
+mapElement.getKey()
+
+mapElement.getValue()
+
+
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+	
+	    Map<String,String> m1= new HashMap<>();
+	    
+	    
+	    m1.put("1","Hai");
+	    m1.put("2","Revature");
+	    m1.put("3","Associates");
+	    
+	    Iterator hmiter=m1.entrySet().iterator();
+	    
+	    while(hmiter.hasNext())
+	    {
+	        Map.Entry mapele = (Map.Entry) hmiter.next();
+	   
+	        System.out.println((String)mapele.getKey());
+	        System.out.println();
+	    }
+	     
+	}
+}
+
+
+3. using forEach() in hashMap
+
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+	
+	    Map<String,String> m1= new HashMap<>();
+	    
+	    
+	    m1.put("1","Hai");
+	    m1.put("2","Revature");
+	    m1.put("3","Associates");
+	    
+	  m1.forEach( ( ke, val ) -> System.out.println(val));
+	     
+	}
+}
+
+
+Constructors in HashMap
+
+
+1. HashMap()
+2. HashMap(int initialCapacity)
+3. HashMap(int initialCapacity, float loadFactor)
+4. HashMap(Map map)
+
+
+Methods
+
+clear()
+
+clone()
+
+containsKey()
+containsValue()
+
+get()
+
+isEmpty()
+
+putAll()
+
+size()
+
+values()
+
+
+equals()
+
+hashCode()
+
+toString()
+
+
+
+TreeMap:
+
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+	
+	    Map<Object,Object> m1= new HashMap<>();
+	    m1.put(1,"Hai");
+	    m1.put(100,"from Revature");
+	    m1.put(3,"Associates");
+	    m1.forEach( ( ke, val ) -> System.out.println(val));
+	    
+	     
+	}
+}
+
+Constructors::
+
+1. TreeMap()
+
+2. TreeMap(Comparator cmp)
+
+3. TreeMap(Map m)
+
+4. TreeMap(SortedMap s)
+
+TreeMap methods::
+
+firstKey()
+
+
+
+!!!! LinkedHashedMap !!!!
+
+
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+	
+	    Map<Object,Object> m1= new LinkedHashMap<>();
+	    m1.put(1,"Hai");
+	    m1.put(100,"from Revature");
+	    m1.put(3,"Associates");
+	    m1.forEach( ( ke, val ) -> System.out.println(val));
+	    
+	     
+	}
+}
+
+-->It maintains the order 
+
+
+Constructors::::
+
+1. LinkedHashMap()
+2. LinkedHashMap(int capacity)
+3. LinkedHashMap(Map m)
+4. LinkedHashMap(int capacity, float fillRatio)
+
+
+
+compartor in Java ?????
+
+
+	--> both are interface
+	--> sort collection elements
+
+
+
+	comparable					comparator
+
+-> single sorting sequence			multiple sorting sequence.
+
+-> affets the original class			doesnt affect
+
+-> compareTo()					compare()
+
+-> java.lang					java.util
+
+-> collections.sort(List)			Collections.sort(List comparator)
+
+!!! comparable interface !!!
+
+
+import java.util.*;
+class Person implements Comparable<Person>
+{
+    int age;
+    String name;
+    int weight;
+    
+    Person(int age, String name, int weight)
+    {
+        this.age=age;
+        this.name=name;
+        this.weight=weight;
+    }
+    
+    public int compareTo(Person p)
+    {
+        if(age==p.age)
+            return 0;
+        else if(age>p.age)
+            return 1;
+        else    
+            return -1;
+    }
+}
+class Main
+{
+    public static void main(String[] args)
+    {
+        
+        ArrayList<Person> pl=new ArrayList<Person>();
+        pl.add(new Person(18,"Ajay",52));
+        pl.add(new Person(22,"Shahbaz",45));
+        pl.add(new Person(15,"Jai",34));
+        
+        Collections.sort(pl);
+        
+        for(Person p:pl)
+        {
+            System.out.println(p.age+ " " + p.name +" " + p.weight);
+        }
+    }
+}
+
+!!! comparator !!!
+
+import java.util.*;
+class Person 
+{
+    int age;
+    String name;
+    int weight;
+    
+    Person(int age, String name, int weight)
+    {
+        this.age=age;
+        this.name=name;
+        this.weight=weight;
+    }
+}
+class ageComp implements Comparator<Person>
+{
+    public int compare(Person p1, Person p2)
+    {
+        if(p1.age==p2.age)
+            return 0;
+        else if (p1.age > p2.age)
+            return 1;
+        else    
+            return -1;
+    }
+}
+class nameComp implements Comparator<Person>
+{
+    public int compare(Person p1, Person p2)
+    {
+        return p1.name.compareTo(p2.name);
+    }
+}
+class Main
+{
+    public static void main(String[] args)
+    {
+        
+        ArrayList<Person> pl=new ArrayList<Person>();
+        pl.add(new Person(18,"Ajay",52));
+        pl.add(new Person(22,"Shahbaz",45));
+        pl.add(new Person(15,"Jai",34));
+        
+        Collections.sort(pl,new nameComp());
+        
+        for(Person p:pl)
+        {
+            System.out.println(p.age+ " " + p.name +" " + p.weight);
+        }
+        
+        Collections.sort(pl,new ageComp());
+        
+        for(Person p:pl)
+        {
+            System.out.println(p.age+ " " + p.name +" " + p.weight);
+        }
+    }
+}
+
+Generics::
+
+--> apply generics to class, interfaces or methord.
+--> it any of these operates on some generic type T, then this class is called generic
+--> atype that receive this generic class as parameter is called parameterized type.
+
+
+class className<Type1 ,Type 2...>
+{
+
+}
+
+
+class Main<T>
+{
+    private T t;
+    public void add(T t)
+    {
+        this.t=t;
+    }
+    public T get()
+    {
+        return t;
+    }
+   
+    public static void main(String[] args)
+    {
+        Main<Integer> rectangle=new Main<Integer>();
+        
+        Main<Double> circle = new Main<Double>();
+        
+        rectangle.add(20);
+        circle.add(3.5);
+        System.out.println(rectangle.get());
+         System.out.println(circle.get());
+    }
+}
+
+
+
+class Main
+{
+    static < T > void example(T el)
+    {
+        System.out.println(el.getClass().getName()+" = " + el);
+    }
+    public static void main(String[] args)
+    {
+        example(1);
+        example("Revature");
+        example(12.5);
+    }
+}
+
+type parameters
+
+T-> Type
+E-> Element
+K-> Key
+N-> Number
+V-> Value
+
+import java.util.*;
+class Main
+{
+    
+    public static void main(String[] args)
+    {
+        ArrayList<Object> al=new ArrayList<>();
+        al.add("Saurav");
+        al.add("pandey");
+        al.add(20);
+        
+        
+        System.out.println(al.get(0)+" " +al.get(1)+ " "+al.get(2));
+    }
+}
+
+!!! streams !!!!
+
+		--> Sequence of object from the source , which supports aggregate operations.
+
+		--> sequence of elements.
+		
+		--> aggregate functions: filter, map, limit, reduce, find, sorted...
+
+		--> pipelining
+
+		--> implicit iteration
+
+Generate streams::
+	
+	stream ()	--> sequential
+	
+	parallelstream ()	--> parallel
+
+
+1. filter()
+
+import java.util.*;
+import java.util.stream.*;
+class Main
+{
+    
+    public static void main(String[] args)
+    {
+       List<String> st=Arrays.asList("apple","mango","banana","grapes","","watermelon");
+       List<String> ne=st.stream().filter(st1->!st1.isEmpty()).collect(Collectors.toList());
+       System.out.println(ne);
+    }
+}
+
+
+
+Non terminal operations::
+
+filter()
+map()
+distinct()
+sorted()
+peek()
+
+terminal operations
+
+anyMatch()
+collect()
+count()
+findFirst()
+min()
+max()
+sum() average
+
+ex1:  Obtain list of prod belongs to book category with price > 100.
+
+
+
+	.stream().filter(p -> p.getCategory().equals("Books")).filter(p->p.getPrice() > 100).
+	collect(Collectors.toList())
+
+Problem 1::
+
+	Given a stream containing some elements the task is to find the duplicate elemenets in stream
+
+stream={5,4,21,13,13,23,1,21}
+
+o/p::[ 21,13 ]
+
+Stream <Integer> st=Stream.of( 5,4,21,13,13,23,1,21 );
+
+solution::
+
+import java.util.*;
+import java.util.stream.*;
+class Main
+{
+    
+    public static void main(String[] args)
+    {
+       Stream<Integer> st=Stream.of(5,4,21,13,13,23,1,21);
+       Set<Integer> ele=new HashSet<>();
+       System.out.println(st.filter(n->!ele.add(n)).collect(Collectors.toSet()));
+    }
+}
+
+
+
+import java.util.*;
+import java.util.stream.*;
+class Main
+{
+    
+    public static void main(String[] args)
+    {
+        List<Integer> li=Arrays.asList(5,4,21,13,13,23,1,21);
+       li.stream().distinct().forEach(System.out::println);
+    }
+}
+
+Problem 2::
+
+Count the occurence of a given character in a string using stream API
+
+string::	aabccdefga
+
+character::	a
+
+o/p::		3
+
+
+
+import java.util.*;
+import java.util.stream.*;
+class Main
+{
+    
+    public static void main(String[] args)
+    {
+      String st="aabccdefga";
+      char ch='a';
+      System.out.println(st.chars().filter(c->c==ch).count());
+    }
+}
+
+Problem 3::
+
+Find the last element of the stream::
+
+
+stream={1,4,5,7,8,9}
+
+o/p:; 9
+
+
+stream.reduce((a,b)->b)
+
+
+import java.util.*;
+import java.util.stream.*;
+class Main
+{
+    
+    public static void main(String[] args)
+    {
+       Stream<Integer> st=Stream.of(5,4,21,13,13,23,1,21);
+       System.out.println(st.reduce((fir,sec)->sec).orElse(null));
+    }
+}
+
+
+Collection Algorithms
+
+The methods defined in collection framework's algorithm.
+
+
+static int binarySearch(List l, Object val, Comparator c)
+static int binarySearch(List l, Object val)
+static void copy(l1,l2)
+static void fill(List l, object o)
+ArrayList list()
+max()
+min()
+reverse(list l)
+rotate()
+
+shuffle()
+sort()
+swap()
+
+
+Program 1::
+Implement different operations on a ArrayList A .
+ 
+
+Input:
+The first line of input contains an integer T denoting the no of test cases . Then T test cases follow. 
+The first line of input contains an integer Q denoting the no of queries . Then in the next line are Q space separated queries .
+A query can be of five types 
+1. a x (Adds an element x to the ArrayList A at the end )
+2. b (Sorts the ArrayList A in ascending order )
+3. c (Reverses the ArrayList A)
+4. d (prints the size of the ArrayList)
+5. e (prints space separated values of the ArrayList)
+5. f  (Sorts the ArrayList A in descending order)
+
+
+Output:
+The output for each test case will  be space separated integers denoting the results of each query . 
+
+Constraints:
+1<=T<=100
+1<=Q<=100
+
+Example:
+
+Input
+2
+6
+a 4 a 6 a 7 b c e
+4
+a 55 a 11 d e
+ 
+Output
+7 6 4
+2 55 11
+
+
+Problem 2::
+Implement different operations on a set s .
+
+Input:
+The first line of input contains an integer T denoting the no of test cases . Then T test cases follow. The first line of input contains an integer Q denoting the no of queries . Then in the next line are Q space separated queries .
+A query can be of four types 
+1. a x (inserts an element x to the set s)
+2. b (prints the contents of the set s in increasing order)
+3. c x (erases an element x from the set s)
+4. d x (prints 1 if the element x is present in the set else print -1)
+5. e (prints the size of the set s)
+
+Output:
+The output for each test case will  be space separated integers denoting the results of each query .
+
+Constraints:
+1 <= T <= 100
+1 <= Q <= 100
+
+Example:
+Input:
+2
+6
+a 1 a 2 a 3 b c 2 b
+5
+a 1 a 5 e d 5 d 2
+
+Output:
+1 2 3 1 3
+2 1 -1
+
+Problem 3::
+
+Given only a pointer to a node to be deleted in a singly linked list. Print the whole Linked List after deletion.
+
+Input:
+The first line of input contains an element T, denoting the no of test cases. Then T test cases follow. 
+Each test case contains two lines. The first line of each test case contains two integers N denoting the 
+no of elements of the linked list and P denoting the number of the node which is to be deleted (starting from 0) . 
+Then in the next line are N space separated values of the linked list.
+
+Output:
+The output for each test case will be the space separated elements of the updated linked list.
+
+Constraints:
+1<=T<=100
+2<=N<=103
+0<=P<(N-1)
+Example(To be used only for expected output):
+
+Input:
+2
+5 2
+1 2 3 4 5
+4 0
+1 3 6 9
+
+Output:
+1 2 4 5
+3 6 9
